@@ -20,18 +20,46 @@ app.use((err, req, res, next) => {
 
 app.use(morgan("common"));
 
-let topBooks = [
+let topMovies = [
   {
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
+    title: "The Fellowship of the Ring",
+    director: "Peter Jackson",
   },
   {
-    title: "Lord of the Rings",
-    author: "J.R.R. Tolkien",
+    title: "The Two Towers",
+    director: "Peter Jackson",
   },
   {
-    title: "Twilight",
-    author: "Stephanie Meyer",
+    title: "The Return of the King",
+    director: "Peter Jackson",
+  },
+  {
+    title: "The King's Speech",
+    director: "Tom Hooper",
+  },
+  {
+    title: "The Imitation Game",
+    director: "Morten Tyldum",
+  },
+  {
+    title: "Inception",
+    director: "Christopher Nolan",
+  },
+  {
+    title: "Spirited Away",
+    director: "Hayao Miyazaki",
+  },
+  {
+    title: "Django Unchained",
+    director: "Quentin Tarantino",
+  },
+  {
+    title: "Rear Window",
+    director: "Alfred Hitchcock",
+  },
+  {
+    title: "Casablanca",
+    director: "Michael Curtiz",
   },
 ];
 
@@ -65,8 +93,8 @@ app.get("/documentation", (req, res) => {
   res.sendFile("public/documentation.html", { root: __dirname });
 });
 
-app.get("/books", (req, res) => {
-  res.json(topBooks);
+app.get("/movies", (req, res) => {
+  res.json(topMovies);
 });
 
 // listen for requests
