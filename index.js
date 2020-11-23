@@ -78,7 +78,9 @@ let topMovies = [
 
 // GET requests
 app.get("/", (req, res) => {
-  res.send("Welcome to my app!");
+  res.send(
+    "Welcome to myFlix! Search for movies and directors out of my top ten :)"
+  );
   //   responseText += "<small>Requested at: " + req.requestTime + "</small>";
   //   res.send(responseText);
 });
