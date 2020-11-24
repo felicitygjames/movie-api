@@ -20,6 +20,8 @@ app.use((err, req, res, next) => {
 
 app.use(morgan("common"));
 
+app.use("/documentation", express.static("public"));
+
 let topMovies = [
   {
     title: "The Fellowship of the Ring",
