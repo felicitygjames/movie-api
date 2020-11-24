@@ -10,6 +10,8 @@ app.use(
   })
 );
 
+app.use("/documentation", express.static("public"));
+
 app.use(bodyParser.json());
 app.use(methodOverride());
 
@@ -19,8 +21,6 @@ app.use((err, req, res, next) => {
 });
 
 app.use(morgan("common"));
-
-app.use("/documentation", express.static("public"));
 
 let topMovies = [
   {
