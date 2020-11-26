@@ -10,7 +10,7 @@ app.use(
   })
 );
 
-app.use("/documentation", express.static("public"));
+app.use("/documentation.html", express.static("public"));
 
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -93,7 +93,7 @@ app.get("/secreturl", (req, res) => {
   //   res.send(responseText);
 });
 
-app.get("/documentation", (req, res) => {
+app.get("/documentation.html", (req, res) => {
   res.sendFile("public/documentation.html", { root: __dirname });
 });
 
