@@ -20,16 +20,20 @@
                 <th>Method</th>
                 <th>URL</th>
                 <th>Request Body Format</th>
+                <th>Request Example</th>
                 <th>Response</th>
                 <th>Response Format</th>
+                <th>Response Example</th>
             </tr>
             <tr>
                 <td>See homepage</td>
                 <td>GET</td>
                 <td>/</td>
                 <td>None</td>
+                <td>/</td>
                 <td>Welcome to MyFlix!</td>
                 <td>JSON</td>
+                <td>"Welcome to MyFlix!"</td>
             </tr>
             <tr>
                 <td>Get a list of all movies</td>
@@ -37,79 +41,152 @@
                 <td>/movies</td>
                 <td>None</td>
                 <td>None</td>
+                <td>/movies</td>
                 <td>JSON</td>
+                <td>
+                    "id": 1,
+                    "Title": "Silence of the Lambs",
+                    "Description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
+                    "Genre": {
+                      "Name": "Thriller",
+                      "Description": "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+                    },
+                    "Director": {
+                      "Name": "Jonathan Demme",
+                      "Bio": "Robert Jonathan Demme was an American director, producer, and screenwriter.",
+                      "Birth": "1944",
+                      "Death": "2017"
+                    },
+                    "ImagePath": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,677,1000_AL_.jpg",
+                    "Featured": true
+                  }</td>
             </tr>
             <tr>
                 <td>Get a specific movie title and it's information</td>
                 <td>GET</td>
                 <td>/movies/:Title</td>
                 <td>None</td>
+                <td>/movies/Joker</td>
                 <td>None</td>
                 <td>JSON</td>
+                <td>
+                    "id": 2,
+                    "Title": "Joker",
+                    "Description": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
+                    "Genre": {
+                      "Name": "Drama",
+                      "Description": "In film and television, drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. ... These terms tend to indicate a particular setting or subject-matter, or else they qualify the otherwise serious tone of a drama with elements that encourage a broader range of moods."
+                    },
+                    "Director": {
+                      "Name": "Todd Phillips",
+                      "Bio": "Todd Phillips was born on December 20, 1970 in Brooklyn, New York City, New York, USA as Todd Bunzl. He is a producer and director, known for Joker (2019), Old School (2003) and Due Date (2010).",
+                      "Birth": "1970",
+                      "Death": ""
+                    },
+                    "ImagePath": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+                    "Featured": true
+                  }</td>
             </tr>
             <tr>
                 <td>Get information about a specific movie's genre by it's title</td>
                 <td>GET</td>
                 <td>/movies/genres/:Name</td>
                 <td>None</td>
+                <td>/movies/genres/Joker</td>
                 <td>None</td>
                 <td>JSON</td>
+                <td>"Genre": {
+                    "Name": "Drama",
+                    "Description": "In film and television, drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. ... These terms tend to indicate a particular setting or subject-matter, or else they qualify the otherwise serious tone of a drama with elements that encourage a broader range of moods."
+                  }</td>
             </tr>
             <tr>
                 <td>Get information about a movie's director by it's title</td>
                 <td>GET</td>
                 <td>movies/director/:Name</td>
                 <td>None</td>
+                <td>/movies/director/Todd%20Phillips</td>
                 <td>None</td>
                 <td>JSON</td>
+                <td>Director": {
+                    "Name": "Todd Phillips",
+                    "Bio": "Todd Phillips was born on December 20, 1970 in Brooklyn, New York City, New York, USA as Todd Bunzl. He is a producer and director, known for Joker (2019), Old School (2003) and Due Date (2010).",
+                    "Birth": "1970",
+                    "Death": ""
+                  }</td>
             </tr>
             <tr>
                 <td>Get a list of users</td>
                 <td>GET</td>
                 <td>/users</td>
                 <td>None</td>
+                <td>/users</td>
                 <td>None</td>
                 <td>JSON</td>
+                <td>{
+                    "id": 1,
+                    "Username": "Felicity",
+                    "Password": "1234",
+                    "Email": "felicity@gmail.com",
+                    "Birthday": "11/04/1990",
+                    "FavoriteMovies": [
+                      
+                    ]
+                  }</td>
             </tr>
             <tr>
                 <td>Add a new user</td>
                 <td>POST</td>
                 <td>/users</td>
                 <td>JSON</td>
+                <td>{<br>"Felicity": "felicityjames",<br> "Password": "felicity1234",<br>"Email": "felicity@gmail.com",<br>"Date of Birth": "05/25/1996"<br>}</td>
                 <td>User added!</td>
                 <td>JSON</td>
+                <td>?</td>
             </tr>
             <tr>
                 <td>Lets a user update his or her information</td>
                 <td>PUT</td>
                 <td>/users/:Username</td>
                 <td>JSON</td>
+                <td>{<br>"Felicity": "felicityjames",<br> "Password": "felicity1234",<br>"Email": "felicity@gmail.com",<br>"Date of Birth": "05/25/1996"<br>}</td>
                 <td>None</td>
                 <td>JSON</td>
+                <td>?</td>
             </tr>
             <tr>
                 <td>Lets a user add a movie to their favorites</td>
                 <td>POST</td>
                 <td>/users/:Username/favorites</td>
                 <td>None</td>
+                <td>?</td>
                 <td>Successfully added movie to favorites!</td>
                 <td>JSON</td>
+                <td>?</td>
             </tr>
             <tr>
                 <td>Lets a user delete a movie from their favorites</td>
                 <td>DELETE</td>
                 <td>/users/:Username/favorites</td>
                 <td>None</td>
+                <td>?</td>
                 <td>Successfully removed movie from favorites.</td>
                 <td>JSON</td>
+                <td>?</td>
             </tr>
             <tr>
                 <td>Shows the documentation of the app</td>
                 <td>GET</td>
                 <td>/documentation</td>
                 <td>None</td>
+                <td>/documentation</td>
                 <td>None</td>
                 <td>JSON</td>
+                <td>This app can be used to search for movies, directors and genres that
+                    you
+                    might be interested in. You can also save your personal information
+                    and
+                    movies you like! Enjoy!</td>
             </tr>
         </table>
     </body>
