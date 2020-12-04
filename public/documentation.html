@@ -1,71 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=, initial-scale=1.0" />
         <title>myFlix</title>
     </head>
     <body>
         <p>
             This app can be used to search for movies, directors and genres that
-            you might be interested in. You can also save your personal
-            information and movies you like! Enjoy!
+            you
+            might be interested in. You can also save your personal information
+            and
+            movies you like! Enjoy!
         </p>
 
-        <ul>
-            <li>/movies - returns movie list (get)</li>
-            <li>/genres - returns list of genres (get)</li>
-            <li>/directors - returns list of directors (get)</li>
-            <li>/users - returns list of users(get)</li>
-        </ul>
-
-        <table style="width:100%">
+        <table style="width: 100%">
             <tr>
-              <th>Request</th>
-              <th>URL</th>
-              <th>Response</th>
+                <th>Request</th>
+                <th>URL</th>
+                <th>Response</th>
             </tr>
             <tr>
-              <td>GET</td>
-              <td>/</td>
-              <td>(Welcome to MyFlix!)</td>
+                <td>GET</td>
+                <td>/</td>
+                <td>(Welcome to MyFlix!)</td>
             </tr>
             <tr>
                 <td>GET</td>
                 <td>/movies</td>
                 <td>None</td>
-              </tr>
+            </tr>
             <tr>
-              <td>GET</td>
-              <td>Genres</td>
-              <td>None</td>
+                <td>GET</td>
+                <td>/movies/:Title</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/genres</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/genres/:Name</td>
+                <td>None</td>
             </tr>
             <tr>
                 <td>GET</td>
                 <td>/directors</td>
                 <td>None</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/directors/:Name</td>
+                <td>None</td>
+            </tr>
+            <tr>
                 <td>GET</td>
                 <td>/users</td>
                 <td>None</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/users/</td>
+                <td>User added!</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/users/:Username</td>
+                <td>None</td>
+            </tr>
+            <tr>
                 <td>POST</td>
                 <td>/users/:Username/favorites</td>
-                <td>None</td>
-              </tr>
-              <tr>
+                <td>Successfully added movie to favorites!</td>
+            </tr>
+            <tr>
                 <td>DELETE</td>
                 <td>/users/:Username/favorites</td>
-                <td>None</td>
-              </tr>
-              <tr>
+                <td>Successfully removed movie from favorites.</td>
+            </tr>
+            <tr>
                 <td>GET</td>
                 <td>/documentation</td>
                 <td>None</td>
-              </tr>
-          </table>
-
+            </tr>
+        </table>
     </body>
 </html>
