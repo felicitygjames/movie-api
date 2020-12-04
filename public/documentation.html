@@ -19,20 +19,23 @@
                 <th>Request</th>
                 <th>Method</th>
                 <th>URL</th>
+                <th>Request Body Format</th>
                 <th>Response</th>
-                <th>Format</th>
+                <th>Response Format</th>
             </tr>
             <tr>
                 <td>See homepage</td>
                 <td>GET</td>
                 <td>/</td>
+                <td>None</td>
                 <td>Welcome to MyFlix!</td>
-                <td>HTML</td>
+                <td>JSON</td>
             </tr>
             <tr>
                 <td>Get a list of all movies</td>
                 <td>GET</td>
                 <td>/movies</td>
+                <td>None</td>
                 <td>None</td>
                 <td>JSON</td>
             </tr>
@@ -41,12 +44,14 @@
                 <td>GET</td>
                 <td>/movies/:Title</td>
                 <td>None</td>
+                <td>None</td>
                 <td>JSON</td>
             </tr>
             <tr>
                 <td>Get information about a specific movie's genre by it's title</td>
                 <td>GET</td>
                 <td>/movies/genres/:Name</td>
+                <td>None</td>
                 <td>None</td>
                 <td>JSON</td>
             </tr>
@@ -55,6 +60,7 @@
                 <td>GET</td>
                 <td>movies/director/:Name</td>
                 <td>None</td>
+                <td>None</td>
                 <td>JSON</td>
             </tr>
             <tr>
@@ -62,12 +68,14 @@
                 <td>GET</td>
                 <td>/users</td>
                 <td>None</td>
+                <td>None</td>
                 <td>JSON</td>
             </tr>
             <tr>
                 <td>Add a new user</td>
                 <td>POST</td>
                 <td>/users</td>
+                <td>JSON</td>
                 <td>User added!</td>
                 <td>JSON</td>
             </tr>
@@ -75,6 +83,7 @@
                 <td>Lets a user update his or her information</td>
                 <td>PUT</td>
                 <td>/users/:Username</td>
+                <td>JSON</td>
                 <td>None</td>
                 <td>JSON</td>
             </tr>
@@ -82,6 +91,7 @@
                 <td>Lets a user add a movie to their favorites</td>
                 <td>POST</td>
                 <td>/users/:Username/favorites</td>
+                <td>None</td>
                 <td>Successfully added movie to favorites!</td>
                 <td>JSON</td>
             </tr>
@@ -89,6 +99,7 @@
                 <td>Lets a user delete a movie from their favorites</td>
                 <td>DELETE</td>
                 <td>/users/:Username/favorites</td>
+                <td>None</td>
                 <td>Successfully removed movie from favorites.</td>
                 <td>JSON</td>
             </tr>
@@ -96,6 +107,7 @@
                 <td>Shows the documentation of the app</td>
                 <td>GET</td>
                 <td>/documentation</td>
+                <td>None</td>
                 <td>None</td>
                 <td>JSON</td>
             </tr>
