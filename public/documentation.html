@@ -13,11 +13,59 @@
         </p>
 
         <ul>
-            <li>/movies returns movie list</li>
-            <li>/genres (get)</li>
-            <li>/directors (get)</li>
-            <li></li>
-        </ul>>
+            <li>/movies - returns movie list (get)</li>
+            <li>/genres - returns list of genres (get)</li>
+            <li>/directors - returns list of directors (get)</li>
+            <li>/users - returns list of users(get)</li>
+        </ul>
+
+        <table style="width:100%">
+            <tr>
+              <th>Request</th>
+              <th>URL</th>
+              <th>Response</th>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td>/</td>
+              <td>(Welcome to MyFlix!)</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/movies</td>
+                <td>None</td>
+              </tr>
+            <tr>
+              <td>GET</td>
+              <td>Genres</td>
+              <td>None</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/directors</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>GET</td>
+                <td>/users</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>POST</td>
+                <td>/users/:Username/favorites</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>DELETE</td>
+                <td>/users/:Username/favorites</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>GET</td>
+                <td>/documentation</td>
+                <td>None</td>
+              </tr>
+          </table>
 
     </body>
 </html>

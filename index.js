@@ -129,7 +129,7 @@ let movies = [
 
 //GET requests
 app.get("/", function (req, res) {
-  res.send("Welcome to Flix Fix!");
+  res.send("Welcome to MyFlix!");
 });
 app.get("/movies", function (req, res) {
   res.json(movies);
@@ -184,35 +184,14 @@ app.get("/users/:Username", (req, res) => {
   );
 });
 
-app.get("/users/:Email", (req, res) => {
-  res.json(
-    users.find((user) => {
-      return user.Email === req.params.Email;
-    })
-  );
-});
-
-app.get("/users/:Password", (req, res) => {
-  res.json(
-    users.find((user) => {
-      return user.Password === req.params.Password;
-    })
-  );
-});
-
 //allows user to add movie to favorites
-app.post("users/:FavoriteMovies", (req, res) => {
+app.post("/users/:Username/favorites", (req, res) => {
   res.status(500).send("Succesfully added movie to favorites!");
 });
 
 //allows user to remove movie from favorites
-app.delete("users/:Username/:id", (req, res) => {
+app.delete("/users/:Username/favorites", (req, res) => {
   res.status(500).send("Successfully removed movie from favorites.");
-});
-
-//allows user to deregister
-app.delete("/users/:Email", (req, res) => {
-  res.status(500).send("User Deleted.");
 });
 
 app.get("/documentation", (req, res) => {
