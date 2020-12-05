@@ -195,7 +195,7 @@ app.get("/users/:Username", (req, res) => {
 });
 
 //allows user to add movie to favorites
-app.post("/users/:Username/favorites/:MovieID", (req, res) => {
+app.post("/users/:Username/favorites/:id", (req, res) => {
   res.status(500).send("Succesfully added movie to favorites!");
 });
 
