@@ -2,8 +2,18 @@
 
 const express = require("express"),
   morgan = require("morgan");
-const app = express();
 
+const bodyParser = require("body-parser"),
+  methodOverride = require("method-override");
+const app = express();
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.use(bodyParser.json());
+app.use(methodOverride());
 //express.static
 //"documentation.html" file from public folder
 app.use(express.static("public"));
@@ -190,7 +200,7 @@ app.post("/users/:Username/favorites/:MovieID", (req, res) => {
 });
 
 //allows user to remove movie from favorites
-app.delete("/users/:Username/favorites/:MovieID", (req, res) => {
+app.delete("/users/:Username/favorites/:id", (req, res) => {
   res.status(500).send("Successfully removed movie from favorites.");
 });
 
