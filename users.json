@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5fd675b7412a3c1457a4adcb"},"Username":"Felicity","Password":"1234","Email":"felicity@gmail.com","Birthday":{"$date":"1996-05-25T00:00:00Z"},"FavoriteMovies":[]}
+{"_id":{"$oid":"5fd675b8412a3c1457a4adcc"},"Username":"bronwynjames","Password":"bronwyn1234","Email":"bronwyn@gmail.com","Birthday":{"$date":"1997-12-03T00:00:00Z"},"FavoriteMovies":[]}
+{"_id":{"$oid":"5fd675b8412a3c1457a4adcd"},"Username":"erinjames","Password":"erin1234","Email":"erin@gmail.com","Birthday":{"$date":{"$numberLong":"-250473600000"}},"FavoriteMovies":[]}
+{"_id":{"$oid":"5fd675b8412a3c1457a4adce"},"Username":"simonjames","Password":"simon1234","Email":"simon@gmail.com","Birthday":{"$date":{"$numberLong":"-288144000000"}},"FavoriteMovies":[]}
+{"_id":{"$oid":"5fd675ba412a3c1457a4adcf"},"Username":"gayeoverton","Password":"gaye1234","Email":"gaye@gmail.com","Birthday":{"$date":{"$numberLong":"-1076112000000"}},"FavoriteMovies":[]}

@@ -165,7 +165,7 @@ let user1 = {
     Username: "Felicity",
     Password: "1234",
     Email: "felicity@gmail.com",
-    Birthday: "11/04/1990",
+   Birthday: new Date("1996-05-25"),
     FavoriteMovies: [],
 }
 
@@ -175,7 +175,7 @@ let user2 = {
     Username: "bronwynjames",
     Password: "bronwyn1234",
     Email: "bronwyn@gmail.com",
-    Birthday: "12/03/1997",
+    Birthday: new Date("1997-12-03"),
     FavoriteMovies: [],
 }
 
@@ -185,7 +185,7 @@ let user3 = {
     Username: "erinjames",
     Password: "erin1234",
     Email: "erin@gmail.com",
-    Birthday: "1/24/1962",
+    Birthday: new Date("1962-01-24"),
     FavoriteMovies: [],
 }
 
@@ -195,7 +195,7 @@ let user4 = {
     Username: "simonjames",
     Password: "simon1234",
     Email: "simon@gmail.com",
-    Birthday: "11/14/1960",
+    Birthday: new Date("1960-11-14"),
     FavoriteMovies: [],
 }
 
@@ -205,7 +205,7 @@ let user5 = {
     Username: "gayeoverton",
     Password: "gaye1234",
     Email: "gaye@gmail.com",
-    Birthday: "11/26/1935",
+    Birthday: new Date("1935-11-26"),
     FavoriteMovies: [],
 }
 
@@ -216,3 +216,9 @@ db.users.update(
   { Username: "Felicity" },
   { $push: { FavoriteMovies: ObjectId("5fd12365825b68b252970068") } }
 )
+
+mongoexport -d myFlixDB -c movies -o movies.json
+
+mongoexport -d myFlixDB -c users -o users.json
+
+!! Made updates to the DB, changed all user birthday formats etc. Too lazy to change everything here at the moment.!!
