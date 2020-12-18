@@ -7,7 +7,6 @@ Models = require("./models.js");
 const app = express();
 const Movies = Models.Movie;
 const Users = Models.User;
-// local connection
 mongoose.connect("mongodb://localhost:27017/myFlixDB", {
   useNewUrlParser: true,
 });
@@ -16,25 +15,35 @@ mongoose.connect("mongodb://localhost:27017/myFlixDB", {
 //   { useNewUrlParser: true }
 // );
 
+const passport = require("passport");
+require("./passport");
+
 app.use(morgan("common"));
 app.use(express.static("public"));
 app.use(bodyParser.json());
+app.use(bodyParser.json());
+
+let auth = require("./auth")(app);
 
 //list of all movies
 app.get("/", function (req, res) {
   return res.status(400).send("Welcome to my Flix App");
 });
 
-app.get("/movies", function (req, res) {
-  Movies.find()
-    .then(function (movies) {
-      res.status(201).json(movies);
-    })
-    .catch(function (err) {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get(
+  "/movies",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Movies.find()
+      .then((movies) => {
+        res.status(201).json(movies);
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send("Error: " + error);
+      });
+  }
+);
 //get information about movie by title
 app.get("/movies/:Title", function (req, res) {
   Movies.findOne({ Title: req.params.Title })
