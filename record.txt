@@ -222,3 +222,9 @@ mongoexport -d myFlixDB -c movies -o movies.json
 mongoexport -d myFlixDB -c users -o users.json
 
 !! Made updates to the DB, changed all user birthday formats etc. Too lazy to change everything here at the moment.!!
+
+mongoimport --uri mongodb+srv://felicityjames:felicityjames@cluster0.a6roq.mongodb.net/myFlixDB --collection users --type json --file users.json
+
+mongo "mongodb+srv://cluster0.a6roq.mongodb.net/myFlixDB" --username felicityjames
+
+mongodb+srv://felicityjames:felicityjames@cluster0.a6roq.mongodb.net/myFlixDB?retryWrites=true&w=majority
