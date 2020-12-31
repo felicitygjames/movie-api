@@ -18,6 +18,9 @@ mongoose.connect(
 const passport = require("passport");
 require("./passport");
 
+const cors = require("cors");
+app.use(cors());
+
 app.use(morgan("common"));
 app.use(express.static("public"));
 app.use(bodyParser.json());
