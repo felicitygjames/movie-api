@@ -18,8 +18,8 @@ mongoose.connect(
 const passport = require("passport");
 require("./passport");
 
-const cors = require("cors");
-app.use(cors());
+// const cors = require("cors");
+// app.use(cors());
 
 const { check, validationResult } = require("express-validator");
 
@@ -37,7 +37,7 @@ app.get("/", function (req, res) {
 
 app.get(
   "/movies",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Movies.find()
       .then((movies) => {
