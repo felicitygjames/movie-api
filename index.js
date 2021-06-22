@@ -5,6 +5,8 @@ const express = require("express"),
 mongoose = require("mongoose");
 Models = require("./models.js");
 const app = express();
+const cors = require("cors");
+app.use(cors());
 const Movies = Models.Movie;
 const Users = Models.User;
 // mongoose.connect("mongodb://localhost:27017/myFlixDB", {
