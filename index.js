@@ -33,6 +33,17 @@ app.use(bodyParser.json());
 let auth = require("./auth")(app);
 
 //list of all movies
+/**
+ * This method calls the endpoint for all movies,
+ * authenticates the user and token with passport
+ * and displays an array of movies.
+ * @method getMovies
+ * @param {string} moviesEndpoint - http://localhost:8080/movies
+ * @param {func} passportAuthentication - Authenticates web tokens using passport.
+ * @param {func} callback - Uses Movies schema to find list of movies.
+ * @returns {Array} - Displays an array of movies.
+ */
+
 app.get("/", function (req, res) {
   return res.status(400).send("Welcome to my Flix App");
 });
@@ -51,7 +62,23 @@ app.get(
       });
   }
 );
-//get information about movie by title
+
+/**
+ * gets information about movie by title
+ *
+ */
+
+/**
+ * This method calls the movie title endpoint,
+ * authenticates the user using web tokens and passport
+ * and displays a single movie.
+ * @method getMovieByTitle
+ * @param {string} movieEndpoint - http://localhost:8080/movies/:Title
+ * @param {func} passportAuthentication - Authenticates tokens by using passport.
+ * @param {func} callback - Uses Movies schema to find a single movie by title.
+ * @returns {Object} - Displays a single movie.
+ */
+
 app.get(
   "/movies/:Title",
   passport.authenticate("jwt", { session: false }),
@@ -68,6 +95,18 @@ app.get(
 );
 
 //get data about director
+
+/**
+ * This method calls the movie director name endpoint,
+ * authenticates the user using web tokens and passport
+ * and displays a director object.
+ * @method getDirectorByName
+ * @param {string} directorEndpoint - http://localhost:8080/movies/director/:Name
+ * @param {func} passportAuthentication - Authenticates tokens using passport.
+ * @param {func} callback - Uses Movies schema to find director by name.
+ * @returns {Object} - Displays director information.
+ */
+
 app.get(
   "/movies/director/:Name",
   passport.authenticate("jwt", { session: false }),
@@ -84,6 +123,18 @@ app.get(
 );
 
 //get data about genre by name
+
+/**
+ * This method calls the movie genre name endpoint,
+ * authenticates the user using web tokens and passport
+ * and displays a genre.
+ * @method getGenreByName
+ * @param {string} genreEndpoint - http://localhost:8080/movies/genre/:Name
+ * @param {func} passportAuthentication - Authenticates tokens by using passport.
+ * @param {func} callback - Uses Movies schema to find genre by name.
+ * @returns {Object} - Displays genre info object.
+ */
+
 app.get(
   "/movies/genre/:Name",
   passport.authenticate("jwt", { session: false }),
@@ -100,6 +151,18 @@ app.get(
 );
 
 //get list of users
+
+/**
+ * This method calls the users endpoint,
+ * authenticates users using tokens and passport
+ * and displays an array of users.
+ * @method getUsers
+ * @param {string} usersEndpoint - http://localhost:8080/users
+ * @param {func} passportAuthentication - Authenticates tokens by using passport.
+ * @param {func} callback - Uses Users schema to find all users.
+ * @returns {Array} - Displays array of users.
+ */
+
 app.get(
   "/users",
   passport.authenticate("jwt", { session: false }),
@@ -116,6 +179,18 @@ app.get(
 );
 
 //get a user by username
+
+/**
+ * This method calls the user's username endpoint,
+ * authenticates users by using tokens and passport
+ * and returns a user's information.
+ * @method getUser
+ * @param {string} userNameEndpoint - http://localhost:8080/users/:Username
+ * @param {func} passportAuthentication - Authenticates tokens using passport.
+ * @param {func} callback - Uses Users schema to find user by username.
+ * @returns {Object} - Displays user information.
+ */
+
 app.get(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
@@ -131,15 +206,25 @@ app.get(
   }
 );
 
-//Add new user
-/* We’ll expect JSON in this format
-{
- ID : Integer,
- Username : String,
- Password : String,
- Email : String,
- Birthday : Date
-}*/
+//Add a new user
+/**
+ * This method calls the users endpoint,
+ * validates the object sent through the request
+ * and creates a user object in the users array
+ * if the same username doesn't already exist.
+ * We’ll expect JSON in this format for the user object:
+ * {
+ *	ID: Integer,
+ *	Username: String,
+ *	Password: String,
+ *	Email: String,
+ *	Birthday: Date
+ * }
+ * @method addUser
+ * @param {string} usersEndpoint - http://localhost:8080/users
+ * @param {Array} expressValidator - Validate form input using express-validator.
+ * @param {func} callback - Uses Users schema to register a new user.
+ */
 
 app.post(
   "/users",
@@ -186,6 +271,16 @@ app.post(
   }
 );
 // delete user from the list by username
+/**
+ * This method calls the user username endpoint,
+ * validates the object sent through the request
+ * and deletes a user from the users array.
+ * @method removeUser
+ * @param {string} usernameEndpoint - http://localhost:8080//users/:Username
+ * @param {Array} expressValidator - Validate form input using express-validator.
+ * @param {func} callback - Uses Users schema to delete user.
+ */
+
 app.delete(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
@@ -205,17 +300,24 @@ app.delete(
   }
 );
 
-// Update user info by username
-/* We’ll expect JSON in this format
-{
-  Username: String,
-  (required)
-  Password: String,
-  (required)
-  Email: String,
-  (required)
-  Birthday: Date
-}*/
+/**
+ * Update a user's information by their username.
+ * We’ll expect JSON in this format
+ * {
+ *	Username: String,
+ *	(required)
+ *	Password: String,
+ *	(required)
+ *	Email: String,
+ *	(required)
+ *	Birthday: Date
+ * }
+ * @method updateUser
+ * @param {string} userNameEndpoint - http://localhost:8080/users/:Username
+ * @param {Array} expressValidator - Validate form input using express-validator.
+ * @param {func} callback - Uses Users schema to update user's info by their username.
+ */
+
 app.put(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
@@ -244,6 +346,22 @@ app.put(
 );
 
 // Add movie to favorites list
+/**
+ * This method calls the user's movies endpoint,
+ * validates the object sent through the request
+ * and adds the movieID into the FavoriteMovies array.
+ *
+ * We’ll expect JSON in this format for the request object:
+ * {
+ *	ID: Integer,
+ *	Username: String,
+ * }
+ * @method addToFavorites
+ * @param {string} userNameMoviesEndpoint - http://localhost:8080/users/:Username/Movies/:MovieID
+ * @param {Array} expressValidator - Validate form input using express-validator.
+ * @param {func} callback - Uses Users schema to add movieID to list of a user's favorite movies.
+ */
+
 app.post(
   "/users/:Username/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
@@ -267,6 +385,23 @@ app.post(
 );
 
 // delete movie from favorite list for user
+
+/**
+ * This method calls the user's movies endpoint,
+ * validates the object sent through the request
+ * and deletes the movieID from the FavoriteMovies array.
+ *
+ * We’ll expect JSON in this format for the request object:
+ * {
+ *	ID: Integer,
+ *	Username: String,
+ * }
+ * @method removeFromFavorites
+ * @param {string} userNameMoviesEndpoint - http://localhost:8080//users/:Username/Movies/:MovieID
+ * @param {Array} expressValidator - Validate form input using express-validator.
+ * @param {func} callback - Uses Users schema to remove movieID from list of a user's favorite movies.
+ */
+
 app.delete(
   "/users/:Username/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
